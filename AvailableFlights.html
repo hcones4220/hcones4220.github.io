@@ -1,0 +1,402 @@
+<!doctype html>
+<html>
+	
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Arizona Airlines | Available Flights</title>
+	<!--Main CSS Link-->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!--Bootstrap CSS Link-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!--jQuery JS Link-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<!--Popper JS Link-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  	<!--Bootstrap JS Link-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<!--Main Javascript Link-->
+	<script src="Code.js"></script>
+</head>
+
+<body class="bg-custom" onLoad="myFunction()">
+	
+	<!--Banner Image-->
+	<div class="container remove-padding">
+		<img src="Pictures/Banner_Image.png" alt="" class="img-fluid">
+	</div>
+	
+	<!--Main wrapper with content-->
+	<div class="container bg-white remove-padding" style="height: auto;">
+		
+		<nav class="navbar bg-gray navbar-expand navbar-sticky">
+			<ul class="navbar-nav nav-fill w-100">
+				<li class="nav-item">
+					<a class="nav-link ssansp" href="Home.html" style="font-size: 1.125rem">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link ssansp" href="Flights.html" style="font-size: 1.125rem">Flights</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link ssansp" href="Cars.html" style="font-size: 1.125rem">Cars</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link ssansp" href="FFP.html" style="font-size: 1.125rem">AzA Program</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link ssansp dropdown-toggle" data-toggle="dropdown" style="font-size: 1.125rem" href="">About</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item about-hyperlink" href="About.html">About Us</a>
+						<a class="dropdown-item about-hyperlink" href="SignUp.html">Sign Up</a>
+						<a class="dropdown-item about-hyperlink" href="Credits.html">Contact Us</a>
+						<a class="dropdown-item about-hyperlink" href="Careers.html">Careers</a>
+						<a class="dropdown-item about-hyperlink" href="FAQ.html">FAQ</a>
+						<a class="dropdown-item about-hyperlink" href="Credits.html">Credits</a>
+					</div>
+				</li>
+			</ul>
+		</nav>
+		
+		<div class="container" style="width: 95%; margin-top: 2rem;">
+			<h1 style="color: midnightblue; font-weight: bold; letter-spacing: .04em; padding-top: 1.5rem; margin-left: 1rem; text-decoration: underline;" class="ssansp">Available Flights</h1>
+			<br><br><br>
+			<div class="row">
+				<div class="col-5">
+					<h3 style="color: maroon; font-weight: bold; text-align: center;" class="depart"></h3>
+				</div>
+				<div class="col-2">
+					<h1 style="letter-spacing: -.15em; font-size: 5em; text-align: center; position: relative; bottom: 1rem">&rarr;</h1>
+				</div>
+				<div class="col-5">
+					<h3 style="color: maroon; font-weight: bold; text-align: center;" class="arrive"></h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<h4 class="departDate text-center">Placeholder</h4>
+				</div>
+			</div>
+			<h4 style="margin-top: 1em;">Our Flights</h4>
+			<table class="table table-striped" style="margin-top: 2rem;">
+				<tbody>
+					<tr>
+						<td width="10%">
+							<img src="Pictures/ArizonaAirlinesLogo.png" alt="Arizona Airlines" class="img-fluid" style="position: relative; top: .35em;" id="a1">
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0; margin-left: 2em;">
+								<span id="flightTime1" class="font-weight-bold">Placeholder</span>
+								<br>
+								<small class="airports">Placeholder</small>
+							</p>
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0;">
+								<small>Departing at:</small>
+								<br>
+								<span style="font-weight: bold;" id="a2">7:30AM</span>
+							</p>
+						</td>
+						<td width="20%">
+							<p style="margin-bottom: 0;">
+								<span style="font-weight: bold; color: green;" id="a3">$174.00</span>
+								<br>
+								<small>one way</small>
+							</p>
+						</td>
+						<td width="15%">
+							<button type="button" data-toggle="modal" data-target="#ays" class="btn btn-primary" style="margin-top: .35em;" onClick="loadA()">Book Now</button>
+						</td>
+					</tr>
+					<tr>
+						<td width="10%">
+							<img src="Pictures/ArizonaAirlinesLogo.png" alt="Arizona Airlines" class="img-fluid" style="position: relative; top: .35em;" id="b1">
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0; margin-left: 2em;">
+								<span id="flightTime2" class="font-weight-bold">Placeholder</span>
+								<br>
+								<small class="airports">Placeholder</small>
+							</p>
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0;">
+								<small>Departing at:</small>
+								<br>
+								<span style="font-weight: bold;" id="b2">10:50AM</span>
+							</p>
+						</td>
+						<td width="20%">
+							<p style="margin-bottom: 0;">
+								<span style="font-weight: bold; color: green;" id="b3">$180.00</span>
+								<br>
+								<small>one way</small>
+							</p>
+						</td>
+						<td width="15%">
+							<button type="button" data-toggle="modal" data-target="#ays" class="btn btn-primary" style="margin-top: .35em;" onClick="loadB()">Book Now</button>
+						</td>
+					</tr>
+					<tr>
+						<td width="10%">
+							<img src="Pictures/ArizonaAirlinesLogo.png" alt="Arizona Airlines" class="img-fluid" style="position: relative; top: .35em;" id="c1">
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0; margin-left: 2em;">
+								<span id="flightTime3" class="font-weight-bold">Placeholder</span>
+								<br>
+								<small class="airports">Placeholder</small>
+							</p>
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0;">
+								<small>Departing at:</small>
+								<br>
+								<span style="font-weight: bold;" id="c2">4:15PM</span>
+							</p>
+						</td>
+						<td width="20%">
+							<p style="margin-bottom: 0;">
+								<span style="font-weight: bold; color: green;" id="c3">$185.00</span>
+								<br>
+								<small>one way</small>
+							</p>
+						</td>
+						<td width="15%">
+							<button type="button" data-toggle="modal" data-target="#ays" class="btn btn-primary" style="margin-top: .35em;" onClick="loadC()">Book Now</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h4 style="margin-top: 3em;">Other Flights</h4>
+			<table class="table table-striped" style="margin-top: 2rem;">
+				<tbody>
+					<tr>
+						<td width="10%">
+							<img src="Pictures/AmericanAirlinesLogo.png" alt="American Airlines" class="img-fluid" style="position: relative; top: .45em;" id="d1">
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0; margin-left: 2em;">
+								<span id="otherTime1" class="font-weight-bold">Placeholder</span>
+								<br>
+								<small class="airports">Placeholder</small>
+							</p>
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0;">
+								<small>Departing at:</small>
+								<br>
+								<span style="font-weight: bold;" id="d2">5:20AM</span>
+							</p>
+						</td>
+						<td width="20%">
+							<p style="margin-bottom: 0;">
+								<span style="font-weight: bold; color: green;" id="d3">$229.00</span>
+								<br>
+								<small>one way</small>
+							</p>
+						</td>
+						<td width="15%">
+							<button type="button" data-toggle="modal" data-target="#ays" class="btn btn-primary" style="margin-top: .35em;" onClick="loadD()">Book Now</button>
+						</td>
+					</tr>
+					<tr>
+						<td width="10%">
+							<img src="Pictures/AlaskaAirlinesLogo.png" alt="Alaska Airlines" class="img-fluid" style="position: relative; top: .3em;" id="e1">
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0; margin-left: 2em;">
+								<span id="otherTime2" class="font-weight-bold">Placeholder</span>
+								<br>
+								<small class="airports">Placeholder</small>
+							</p>
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0;">
+								<small>Departing at:</small>
+								<br>
+								<span style="font-weight: bold;" id="e2">1:50PM</span>
+							</p>
+						</td>
+						<td width="20%">
+							<p style="margin-bottom: 0;">
+								<span style="font-weight: bold; color: green;" id="e3">$235.00</span>
+								<br>
+								<small>one way</small>
+							</p>
+						</td>
+						<td width="15%">
+							<button type="button" data-toggle="modal" data-target="#ays" class="btn btn-primary" style="margin-top: .35em;" onClick="loadE()">Book Now</button>
+						</td>
+					</tr>
+					<tr>
+						<td width="10%">
+							<img src="Pictures/AmericanAirlinesLogo.png" alt="American Airlines" class="img-fluid" style="position: relative; top: .45em;" id="f1">
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0; margin-left: 2em;">
+								<span id="otherTime3" class="font-weight-bold">Placeholder</span>
+								<br>
+								<small class="airports">Placeholder</small>
+							</p>
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0;">
+								<small>Departing at:</small>
+								<br>
+								<span style="font-weight: bold;" id="f2">11:35AM</span>
+							</p>
+						</td>
+						<td width="20%">
+							<p style="margin-bottom: 0;">
+								<span style="font-weight: bold; color: green;" id="f3">$249.00</span>
+								<br>
+								<small>one way</small>
+							</p>
+						</td>
+						<td width="15%">
+							<button type="button" data-toggle="modal" data-target="#ays" class="btn btn-primary" style="margin-top: .35em;" onClick="loadF()">Book Now</button>
+						</td>
+					</tr>
+					<tr>
+						<td width="10%">
+							<img src="Pictures/SouthwestAirlinesLogo.png" alt="Southwest Airlines" class="img-fluid" style="position: relative; top: .65em;" id="g1">
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0; margin-left: 2em;">
+								<span id="otherTime4" class="font-weight-bold">Placeholder</span>
+								<br>
+								<small class="airports">Placeholder</small>
+							</p>
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0;">
+								<small>Departing at:</small>
+								<br>
+								<span style="font-weight: bold;" id="g2">7:00AM</span>
+							</p>
+						</td>
+						<td width="20%">
+							<p style="margin-bottom: 0;">
+								<span style="font-weight: bold; color: green;" id="g3">$258.00</span>
+								<br>
+								<small>one way</small>
+							</p>
+						</td>
+						<td width="15%">
+							<button type="button" data-toggle="modal" data-target="#ays" class="btn btn-primary" style="margin-top: .35em;" onClick="loadG()">Book Now</button>
+						</td>
+					</tr>
+					<tr>
+						<td width="10%">
+							<img src="Pictures/DeltaAirlines.png" alt="Delta Airlines" class="img-fluid" id="h1">
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0; margin-left: 2em;">
+								<span id="otherTime5" class="font-weight-bold">Placeholder</span>
+								<br>
+								<small class="airports">Placeholder</small>
+							</p>
+						</td>
+						<td width="25%">
+							<p style="margin-bottom: 0;">
+								<small>Departing at:</small>
+								<br>
+								<span style="font-weight: bold;" id="h2">9:40AM</span>
+							</p>
+						</td>
+						<td width="20%">
+							<p style="margin-bottom: 0;">
+								<span style="font-weight: bold; color: green;" id="h3">$273.00</span>
+								<br>
+								<small>one way</small>
+							</p>
+						</td>
+						<td width="15%">
+							<button type="button" data-toggle="modal" data-target="#ays" class="btn btn-primary" style="margin-top: .35em;" onClick="loadH()">Book Now</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br><br><br><br>
+		</div>
+	</div>
+	
+	<!--Modals for when you click the "Book Flight" button-->
+	<div class="modal fade" id="ays" tabindex="-1" role="dialog" aria-labelledby="ays" aria-hidden="true">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title text-center">Are you sure you want to book this flight?</h5>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col">
+							<button type="button" class="btn btn-danger float-left w-100" data-dismiss="modal"><b>Cancel</b></button>
+						</div>
+						<div class="col">
+							<button type="button" class="btn btn-success float-right w-100" onClick="location.href='Booked.html'"><b>Yes</b></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<footer>
+		<div class="container bg-gray">
+			<div class="row" style="padding: 2em 2em 0;">
+				<!--Brand/Logo Section-->
+				<div class="col-3">
+					<a href="Home.html">
+						<img src="Pictures/ArizonaAirlinesLogo.png" alt="" style="padding-top: 2rem">
+					</a>
+				</div>
+				<!--Social Media section-->
+				<div class="col-3">
+					<div class="container" style="padding-top: 2.5rem">
+						<a href="https://www.facebook.com" target="_blank">
+							<img src="Pictures/Facebook-Logo.png" alt="Facebook Logo" class="social-media-icon">
+						</a>
+						<a href="https://twitter.com" target="_blank">
+							<img src="Pictures/Twitter-Logo.png" alt="Twitter Logo" class="social-media-icon">
+						</a>
+						<a href="https://www.instagram.com" target="_blank">
+							<img src="Pictures/Instagram-Logo.png" alt="Instagram Logo" class="social-media-icon">
+						</a>
+					</div>
+				</div>
+				<div class="col-6">
+					<h5 class="ssansp" style="text-align: center; color: white; font-weight: bold; letter-spacing: .1em">All Sites</h5>
+					<hr style="border-color: white">
+					<div class="row">
+						<div class="col">
+							<ul style="list-style-type: none;">
+								<li><a href="Home.html" class="white">Home</a></li>
+								<li><a href="Flights.html" class="white">Book a Flight</a></li>
+								<li><a href="Cars.html" class="white">Rent a Car</a></li>
+								<li><a href="Hotels.html" class="white">Book a Hotel</a></li>
+								<li><a href="FFP.html" class="white">Frequent Flyer Program</a></li>
+								<li><a href="SignUp.html" class="white">Sign Up</a></li>
+							</ul>
+						</div>
+						<div class="col">
+							<ul style="list-style-type: none;">
+								<li><a href="About.html" class="white">About Us</a></li>
+								<li><a href="Contacts.html" class="white">Contact Us</a></li>
+								<li><a href="Careers.html" class="white">Careers</a></li>
+								<li><a href="FAQ.html" class="white">FAQ</a></li>
+								<li><a href="Credits.html" class="white">Credits</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr style="border-color: white;">
+			<p style="color: white; padding-bottom: 1rem; margin-bottom: 0;"><small>Created by Hayden Cones @ Ironwood High School, Glendale AZ, 2019-2020</small></p>
+		</div>
+	</footer>
+	
+</body>
+	
+</html>

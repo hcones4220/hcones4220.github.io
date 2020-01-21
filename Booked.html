@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+	
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Arizona Airlines | Booked Receipt</title>
+	<!--Main CSS Link-->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!--Bootstrap CSS Link-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!--jQuery JS Link-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<!--Popper JS Link-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  	<!--Bootstrap JS Link-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style>
+		td, th {
+			padding: 1em 4em;
+		}
+	</style>
+	<script>
+		function pageLoad(){
+			document.getElementById('departingFrom').innerHTML = localStorage.getItem('depart');
+			document.getElementById('arrivingAt').innerHTML = localStorage.getItem('arrive');
+			document.getElementById('leavingAt').innerHTML = localStorage.getItem('departTime');
+			document.getElementById('flightDuration').innerHTML = localStorage.getItem('duration');
+			document.getElementById('company').innerHTML = localStorage.getItem('company');
+			var c = localStorage.getItem('amount');
+			var cost = Number(c);
+			var tax = cost * .08;
+			var total = cost + tax;
+			//Round numbers to the hundredth place; money
+			cost = Math.round(100 * cost) / 100;
+			tax = Math.round(100 * tax) / 100;
+			total = Math.round(100 * total) / 100;
+			//Convert numbers to strings
+			cost = cost.toString(10);
+			tax = tax.toString(10);
+			total = total.toString(10);
+			//Add an extra 0 on the end to format currency
+			cost += '.00';
+			if(tax.length == 2){
+				tax += '.00';
+				total += '.00';
+			} else if(tax.length == 4){
+				tax += '0';
+				total += '0';
+			}
+			document.getElementById('cost').innerHTML = '$' + cost;
+			document.getElementById('tax').innerHTML = '$' + tax;
+			document.getElementById('total').innerHTML = '$' + total;
+			//Set the image of the airlines on the left of the receipt
+			switch(localStorage.getItem('company')){
+				case 'Arizona Airlines':
+					document.getElementById('imgLogo').src = 'Pictures/ArizonaAirlinesLogo.png';
+					break;
+				case 'American Airlines':
+					document.getElementById('imgLogo').src = 'Pictures/AmericanAirlinesLogo.png';
+					break;
+				case 'Alaska Airlines':
+					document.getElementById('imgLogo').src = 'Pictures/AlaskaAirlinesLogo.png';
+					break;
+				case 'Southwest Airlines':
+					document.getElementById('imgLogo').src = 'Pictures/SouthwestAirlinesLogo.png';
+					break;
+				case 'Delta Airlines':
+					document.getElementById('imgLogo').src = 'Pictures/DeltaAirlines.png';
+					break;
+				default:
+					break;
+			}
+		}
+	</script>
+</head>
+
+<body class="bg-custom" onLoad="pageLoad()">
+	
+	<!--Banner Image-->
+	<div class="container remove-padding">
+		<img src="Pictures/Banner_Image.png" alt="" class="img-fluid">
+	</div>
+	
+	<!--Main wrapper with content-->
+	<div class="container bg-white remove-padding" style="height: auto;">
+		
+		<nav class="navbar bg-gray navbar-expand navbar-sticky">
+			<ul class="navbar-nav nav-fill w-100">
+				<li class="nav-item">
+					<a class="nav-link ssansp" href="Home.html" style="font-size: 1.125rem">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link ssansp" href="Flights.html" style="font-size: 1.125rem">Flights</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link ssansp" href="Cars.html" style="font-size: 1.125rem">Cars</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link ssansp" href="FFP.html" style="font-size: 1.125rem">AzA Program</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link ssansp dropdown-toggle" data-toggle="dropdown" style="font-size: 1.125rem" href="">About</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item about-hyperlink" href="About.html">About Us</a>
+						<a class="dropdown-item about-hyperlink" href="SignUp.html">Sign Up</a>
+						<a class="dropdown-item about-hyperlink" href="Credits.html">Contact Us</a>
+						<a class="dropdown-item about-hyperlink" href="Careers.html">Careers</a>
+						<a class="dropdown-item about-hyperlink" href="FAQ.html">FAQ</a>
+						<a class="dropdown-item about-hyperlink" href="Credits.html">Credits</a>
+					</div>
+				</li>
+			</ul>
+		</nav>
+		
+		<div class="container" style="padding: 2rem;">
+			<h2 style="color: midnightblue">Thank you for booking a flight with us.</h2>
+			<p style="font-size: .9em;"><small>You have successfully booked a spot on the flight described below. Please take this time to review our <a href="">Terms of Service</a> and <a href="">Privacy Policy</a>. If you have any questions, feel free to visit our <a href="FAQ.html">FAQs</a> page or contact us via any of our social media pages or over the phone during office hours. If you would like to cancel this purchase or un-book this flight, click <a href="">here&#187;</a></small></p>
+			<hr>
+			<p style="margin-bottom: 4rem;">
+				Your flight leaves from <span id="departingFrom" class="font-weight-bold">Placeholder</span> and will arrive at <span id="arrivingAt" class="font-weight-bold">Placeholder</span>.
+				<br>
+				The plane will be leaving at <span id="leavingAt" class="font-weight-bold">Placeholder</span> and will be in the air for an estimated <span id="flightDuration" class="font-weight-bold">Placeholder</span>.
+				<br>
+				Flight provided by <span id="company" class="font-weight-bold">Company</span>.
+			</p>
+			<div class="row">
+				<div class="col">
+					<div class="container" style="transform: translate(-50%, -50%); position: absolute; top: 50%; left: 50%; width: 14rem; height: 8rem; background-image: radial-gradient(azure, lightgray); border: 2px solid black; border-radius: 10%;">
+						<img src="#" alt="Airlines Logo" class="img-fluid" id="imgLogo" style="transform: translate(-50%, -50%); position: absolute; top: 50%; left: 50%;">
+					</div>
+				</div>
+				<div class="col">
+					<table>
+						<tbody>
+							<tr>
+								<th>Cost</th>
+								<td id="cost">$100.00</td>
+							</tr>
+							<tr>
+								<th>Tax</th>
+								<td id="tax">$100.00</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr style="border-top: 2px solid black;">
+								<th>Total</th>
+								<td id="total">$100.00</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	<footer>
+		<div class="container bg-gray">
+			<div class="row" style="padding: 2em 2em 0;">
+				<!--Brand/Logo Section-->
+				<div class="col-3">
+					<a href="Home.html">
+						<img src="Pictures/ArizonaAirlinesLogo.png" alt="" style="padding-top: 2rem">
+					</a>
+				</div>
+				<!--Social Media section-->
+				<div class="col-3">
+					<div class="container" style="padding-top: 2.5rem">
+						<a href="https://www.facebook.com" target="_blank">
+							<img src="Pictures/Facebook-Logo.png" alt="Facebook Logo" class="social-media-icon">
+						</a>
+						<a href="https://twitter.com" target="_blank">
+							<img src="Pictures/Twitter-Logo.png" alt="Twitter Logo" class="social-media-icon">
+						</a>
+						<a href="https://www.instagram.com" target="_blank">
+							<img src="Pictures/Instagram-Logo.png" alt="Instagram Logo" class="social-media-icon">
+						</a>
+					</div>
+				</div>
+				<div class="col-6">
+					<h5 class="ssansp" style="text-align: center; color: white; font-weight: bold; letter-spacing: .1em">All Sites</h5>
+					<hr style="border-color: white">
+					<div class="row">
+						<div class="col">
+							<ul style="list-style-type: none;">
+								<li><a href="Home.html" class="white">Home</a></li>
+								<li><a href="Flights.html" class="white">Book a Flight</a></li>
+								<li><a href="Cars.html" class="white">Rent a Car</a></li>
+								<li><a href="Hotels.html" class="white">Book a Hotel</a></li>
+								<li><a href="FFP.html" class="white">Frequent Flyer Program</a></li>
+								<li><a href="SignUp.html" class="white">Sign Up</a></li>
+							</ul>
+						</div>
+						<div class="col">
+							<ul style="list-style-type: none;">
+								<li><a href="About.html" class="white">About Us</a></li>
+								<li><a href="Contacts.html" class="white">Contact Us</a></li>
+								<li><a href="Careers.html" class="white">Careers</a></li>
+								<li><a href="FAQ.html" class="white">FAQ</a></li>
+								<li><a href="Credits.html" class="white">Credits</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr style="border-color: white;">
+			<p style="color: white; padding-bottom: 1rem; margin-bottom: 0;"><small>Created by Hayden Cones @ Ironwood High School, Glendale AZ, 2019-2020</small></p>
+		</div>
+	</footer>
+	
+</body>
+	
+</html>

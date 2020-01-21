@@ -1,0 +1,105 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*Fonts*/
+@import url('https://fonts.googleapis.com/css?family=Cinzel&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Prompt&display=swap');
+
+a:hover {
+	text-decoration: none !important;
+}
+
+a.white {
+	color: white;
+}
+
+.about-hyperlink:active {
+	color: #1e90ff !important;
+	background-color: #f8f9fa !important;
+}
+
+.bg-custom {
+	background: url("Pictures/WhiteAndGrayBG.png");
+}
+
+.bg-gray {
+	background-color: darkgray;
+}
+
+.cinzel {
+	font-family: 'Cinzel', serif;
+}
+
+html {
+	font-size: 16px;
+}
+
+.label-increase-top-padding {
+	padding-top: .35em;
+}
+
+.landing-book {
+	background-color: lightgray;
+}
+
+#landing-login {
+	background-image: linear-gradient(royalblue, lightblue);
+	height: auto;
+}
+
+.move-checkbox {
+	margin-top: .8em !important;
+}
+
+nav.navbar-sticky {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+
+.nav-link {
+	color: black;
+	font-weight: 700;
+	letter-spacing: .05em;
+}
+
+.open-sans {
+	font-family: 'Open Sans', sans-serif;
+}
+
+p {
+	font-family: 'Open Sans', sans-serif;
+	letter-spacing: .01em;
+}
+
+.prompt {
+	font-family: 'Prompt', sans-serif;
+}
+
+.remove-margins {
+	margin: 0 !important;
+}
+
+.remove-padding {
+	padding: 0 !important;
+}
+
+.social-media-icon {
+	width: 2em;
+	height: auto;
+	margin-right: 1em;
+	margin-left: 1em;
+}
+
+.ssansp {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.underline-on-hover:hover {
+	text-decoration: underline;
+}
+
+
+

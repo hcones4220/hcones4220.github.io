@@ -1,0 +1,448 @@
+<!doctype html>
+<html>
+	
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Arizona Airlines | Flights</title>
+	<!--Main CSS Link-->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!--Bootstrap CSS Link-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!--jQuery JS Link-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<!--Popper JS Link-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  	<!--Bootstrap JS Link-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script> 
+		function myFunction() {
+			function $(x) {return document.getElementById(x);}
+			// Extract the location of the departing and arriving airports from the two <select> tags
+			var i = $('airports-from').selectedIndex;
+			var	j = $('airports-from').options;
+			localStorage.setItem('depart', j[i].text);
+			var k = $('airports-to').selectedIndex;
+			var	m = $('airports-to').options;
+			localStorage.setItem('arrive', m[k].text);
+			
+			// Extract the date you selected
+			var date = new Date($('depart').value);
+			var day = ('0' + (date.getDate() + 1)).slice(-2);
+			var month = ('0' + (date.getMonth() + 1)).slice(-2);
+			var year = date.getFullYear();
+			switch(month){
+				case '01': 
+					month = 'January';
+					break;
+				case '02':
+					month = 'February';
+					break;
+				case '03': 
+					month = 'March';
+					break;
+				case '04':
+					month = 'April';
+					break;
+				case '05':
+					month = 'May';
+					break;
+				case '06':
+					month = 'June'
+					break;
+				case '07':
+					month = 'July'
+					break;
+				case '08':
+					month = 'August'
+					break;
+				case '09':
+					month = 'September'
+					break;
+				case '10':
+					month = 'October'
+					break;
+				case '11':
+					month = 'November'
+					break;
+				case '12':
+					month = 'December'
+					break;
+			}
+			var departDate = day + ' ' + month + ' ' + year;
+			localStorage.setItem('departDate', departDate);
+		}
+	</script>
+</head>
+
+<body class="bg-custom">
+	
+	<!--Banner Image-->
+	<div class="container remove-padding">
+		<img src="Pictures/Banner_Image.png" alt="" class="img-fluid">
+	</div>
+	
+	<!--Main wrapper with content-->
+	<div class="container bg-white remove-padding" style="height: auto;">
+		
+		<nav class="navbar bg-gray navbar-expand navbar-sticky">
+			<ul class="navbar-nav nav-fill w-100">
+				<li class="nav-item">
+					<a class="nav-link ssansp" href="Home.html" style="font-size: 1.125rem">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link ssansp" href="Flights.html" style="font-size: 1.125rem">Flights</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link ssansp" href="Cars.html" style="font-size: 1.125rem">Cars</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link ssansp" href="FFP.html" style="font-size: 1.125rem">AzA Program</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link ssansp dropdown-toggle" data-toggle="dropdown" style="font-size: 1.125rem" href="">About</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item about-hyperlink" href="About.html">About Us</a>
+						<a class="dropdown-item about-hyperlink" href="SignUp.html">Sign Up</a>
+						<a class="dropdown-item about-hyperlink" href="Credits.html">Contact Us</a>
+						<a class="dropdown-item about-hyperlink" href="Careers.html">Careers</a>
+						<a class="dropdown-item about-hyperlink" href="FAQ.html">FAQ</a>
+						<a class="dropdown-item about-hyperlink" href="Credits.html">Credits</a>
+					</div>
+				</li>
+			</ul>
+		</nav>
+		
+		<div class="container" style="margin-top: 2em;">
+			<h1 class="ssansp" style="font-weight: bold; margin-left: 2rem; color: midnightblue">Book a Flight</h1>
+			
+			<div class="container bg-light rounded" style="width: 82.5%; margin-top: 2em;">
+				<p style="padding-top: 1em; padding-left: 1em;">(<span style="color: red; position: relative; top: .25em;">* </span><small>Required</small>)</p>
+				<div class="row">
+					<div class="col">
+						<form>
+							<div class="form-group">
+								<input type="checkbox" id="redeem" style="position: relative; top: .1em;">
+								<label for="redeem">Redeem AzA Points</label>
+							</div>
+						</form>
+					</div>
+					<div class="col">
+						<a href="Login.html">Log in to your AzA account<span style="font-size: 1.3em; padding-left: .1em">&#187</span></a>
+					</div>
+				</div>
+				<hr>
+				<h2>Cities and Dates</h2>
+				<form>
+					<div class="form-row" style="margin-top: 1em;">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="from">FROM <span style="color: red;">*</span></label>
+								<select id="airports-from" class="form-control">
+									<option selected disabled>From (Airport)</option>
+									<option>Phoenix Sky Harbor Intl. Airport (PHX)</option>
+									<option>Tucson Intl. Airport (TUS)</option>
+									<option>Mesa - Williams Gateway Airport (IWA)</option>
+									<option>Prescott Municipal Airport (PRC)</option>
+									<option>Scottsdale Airport (SCG)</option>
+									<option>Fresno Yosemite Intl. Airport (FAT)</option>
+									<option>Los Angeles Intl. Airport (LAX)</option>
+									<option>Oakland Intl. Airport (OAK)</option>
+									<option>Ontario Intl. Airport (ONT)</option>
+									<option>Sacramento Intl. Airport (SMF)</option>
+									<option>San Diego Intl. Airport (SAN)</option>
+									<option>San Francisco Intl. Airport (SFO)</option>
+									<option>San Jose Intl. Airport (SJC)</option>
+									<option>Burbank Airport (BUR)</option>
+									<option>Catalina Island Airport (AVX)</option>
+									<option>El Toro Airport (NZJ)</option>
+									<option>Long Beach Airport (LGB)</option>
+									<option>Monterey Peninsula Airport (MRY)</option>
+									<option>Sacramento Executive Airport (SAC)</option>
+									<option>Santa Barbara Municipal Airport (SBO)</option>
+									<option>Santa Monica Municipal Airport (SMO)</option>
+									<option>Van Nuys Regional Airport (VNY)</option>
+									<option>Watsonville Municipal Airport (WVI)</option>
+									<option>Laughlin/Bullhead City Intl. Airport (IFP)</option>
+									<option>Las Vegas McCarran Intl. Airport (LAS)</option>
+									<option>Reno/Tahoe Intl. Airport (RNO)</option>
+									<option>Salt Lake City Intl. Airport (SLC)</option>
+									<option>Saint George Municipal Airport (SGU)</option>
+									<option>Canyonlands Field Airport (CNY)</option>
+									<option>Provo, Utah (PVU)</option>
+									<option>Vernal Airport (VEL)</option>
+									<option>Denver Intl. Airport (DEN)</option>
+									<option>Colorado Springs Airport (COS)</option>
+									<option>Grand Junction/Walker Field Airport (GJT)</option>
+									<option>Montrose Regional Airport (MTJ)</option>
+									<option>Pagosa Springs - Archuleta County (PGO)</option>
+									<option>Rifle/Garfield County Regional (RIL)</option>
+									<option>Telluride Regional Airport (TEX)</option>
+									<option>Yampa Valley Regional Airport (HDN)</option>
+									<option>Albuquerque Intl. Airport (ABQ)</option>
+									<option>Lea County Regional Airport (HOB)</option>
+									<option>Roswell Intl. Airport (ROW)</option>
+									<option>Santa Fe Regional Airport (SAF)</option>
+									<option>Four Corners Regional Airport (FMN)</option>
+									<option>Los Alamos Airport (LAM)</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="to">TO <span style="color: red;">*</span></label>
+								<select id="airports-to" class="form-control">
+									<option disabled selected>To (Airport)</option>
+									<option>Phoenix Sky Harbor Intl. Airport (PHX)</option>
+									<option>Tucson Intl. Airport (TUS)</option>
+									<option>Mesa - Williams Gateway Airport (IWA)</option>
+									<option>Prescott Municipal Airport (PRC)</option>
+									<option>Scottsdale Airport (SCG)</option>
+									<option>Fresno Yosemite Intl. Airport (FAT)</option>
+									<option>Los Angeles Intl. Airport (LAX)</option>
+									<option>Oakland Intl. Airport (OAK)</option>
+									<option>Ontario Intl. Airport (ONT)</option>
+									<option>Sacramento Intl. Airport (SMF)</option>
+									<option>San Diego Intl. Airport (SAN)</option>
+									<option>San Francisco Intl. Airport (SFO)</option>
+									<option>San Jose Intl. Airport (SJC)</option>
+									<option>Burbank Airport (BUR)</option>
+									<option>Catalina Island Airport (AVX)</option>
+									<option>El Toro Airport (NZJ)</option>
+									<option>Long Beach Airport (LGB)</option>
+									<option>Monterey Peninsula Airport (MRY)</option>
+									<option>Sacramento Executive Airport (SAC)</option>
+									<option>Santa Barbara Municipal Airport (SBO)</option>
+									<option>Santa Monica Municipal Airport (SMO)</option>
+									<option>Van Nuys Regional Airport (VNY)</option>
+									<option>Watsonville Municipal Airport (WVI)</option>
+									<option>Laughlin/Bullhead City Intl. Airport (IFP)</option>
+									<option>Las Vegas McCarran Intl. Airport (LAS)</option>
+									<option>Reno/Tahoe Intl. Airport (RNO)</option>
+									<option>Salt Lake City Intl. Airport (SLC)</option>
+									<option>Saint George Municipal Airport (SGU)</option>
+									<option>Canyonlands Field Airport (CNY)</option>
+									<option>Provo, Utah (PVU)</option>
+									<option>Vernal Airport (VEL)</option>
+									<option>Denver Intl. Airport (DEN)</option>
+									<option>Colorado Springs Airport (COS)</option>
+									<option>Grand Junction/Walker Field Airport (GJT)</option>
+									<option>Montrose Regional Airport (MTJ)</option>
+									<option>Pagosa Springs - Archuleta County (PGO)</option>
+									<option>Rifle/Garfield County Regional (RIL)</option>
+									<option>Telluride Regional Airport (TEX)</option>
+									<option>Yampa Valley Regional Airport (HDN)</option>
+									<option>Albuquerque Intl. Airport (ABQ)</option>
+									<option>Lea County Regional Airport (HOB)</option>
+									<option>Roswell Intl. Airport (ROW)</option>
+									<option>Santa Fe Regional Airport (SAF)</option>
+									<option>Four Corners Regional Airport (FMN)</option>
+									<option>Los Alamos Airport (LAM)</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="depart">DEPART <span style="color: red;">*</span></label>
+								<input type="date" name="depart" id="depart" class="form-control">
+							</div>
+						</div>
+					</div>
+					<hr>
+					<h2>Passengers</h2>
+					<div class="form-row" style="margin-top: 1em;">
+						<div class="col">
+							<div class="form-group" style="width: 12em;">
+								<label for="numpassengers"># OF PASSENGERS <span style="color: red;">*</span></label>
+								<select id="numpassengers" class="form-control">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="form-row">
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="pass1">PASSENGER 1 <span style="color: red;">*</span></label>
+								<select id="pass1" class="form-control">
+									<option>Adult (16-64)</option>
+									<option>Senior (65+)</option>
+									<option>Young Adult (12-15)</option>
+									<option>Child (2-11)</option>
+									<option>Infant in seat (under 2)</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="pass2">PASSENGER 2</label>
+								<select id="pass2" class="form-control">
+									<option>N/A</option>
+									<option>Adult (16-64)</option>
+									<option>Senior (65+)</option>
+									<option>Young Adult (12-15)</option>
+									<option>Child (2-11)</option>
+									<option>Infant in seat (under 2)</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="pass3">PASSENGER 3</label>
+								<select id="pass3" class="form-control">
+									<option>N/A</option>
+									<option>Adult (16-64)</option>
+									<option>Senior (65+)</option>
+									<option>Young Adult (12-15)</option>
+									<option>Child (2-11)</option>
+									<option>Infant in seat (under 2)</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="pass4">PASSENGER 4</label>
+								<select id="pass4" class="form-control">
+									<option>N/A</option>
+									<option>Adult (16-64)</option>
+									<option>Senior (65+)</option>
+									<option>Young Adult (12-15)</option>
+									<option>Child (2-11)</option>
+									<option>Infant in seat (under 2)</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="pass5">PASSENGER 5</label>
+								<select id="pass5" class="form-control">
+									<option>N/A</option>
+									<option>Adult (16-64)</option>
+									<option>Senior (65+)</option>
+									<option>Young Adult (12-15)</option>
+									<option>Child (2-11)</option>
+									<option>Infant in seat (under 2)</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="pass6">PASSENGER 6</label>
+								<select id="pass6" class="form-control">
+									<option>N/A</option>
+									<option>Adult (16-64)</option>
+									<option>Senior (65+)</option>
+									<option>Young Adult (12-15)</option>
+									<option>Child (2-11)</option>
+									<option>Infant in seat (under 2)</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="pass7">PASSENGER 7</label>
+								<select id="pass7" class="form-control">
+									<option>N/A</option>
+									<option>Adult (16-64)</option>
+									<option>Senior (65+)</option>
+									<option>Young Adult (12-15)</option>
+									<option>Child (2-11)</option>
+									<option>Infant in seat (under 2)</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="pass8">PASSENGER 8</label>
+								<select id="pass8" class="form-control">
+									<option>N/A</option>
+									<option>Adult (16-64)</option>
+									<option>Senior (65+)</option>
+									<option>Young Adult (12-15)</option>
+									<option>Child (2-11)</option>
+									<option>Infant in seat (under 2)</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="container" style="width: 90%; padding-bottom: 3em; padding-top: 2em;">
+				<a href="AvailableFlights.html" role="button" class="btn btn-warning" style="font-size: 1.2em; padding: .5em 1.2em; float: right; font-weight: bold;" onClick="myFunction()">Search Flights</a>
+				<ul style="list-style: none">
+					<li><small><a href="#">Flying with a group of 9+ people &#187</a></small></li>
+					<li><small><a href="#">Flying with infants/children &#187</a></small></li>
+					<li><small><a href="#">Information about TSA &#187</a></small></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+	
+	<footer>
+		<div class="container bg-gray">
+			<div class="row" style="padding: 2em 2em 0;">
+				<!--Brand/Logo Section-->
+				<div class="col-3">
+					<a href="Home.html">
+						<img src="Pictures/ArizonaAirlinesLogo.png" alt="" style="padding-top: 2rem">
+					</a>
+				</div>
+				<!--Social Media section-->
+				<div class="col-3">
+					<div class="container" style="padding-top: 2.5rem">
+						<a href="https://www.facebook.com" target="_blank">
+							<img src="Pictures/Facebook-Logo.png" alt="Facebook Logo" class="social-media-icon">
+						</a>
+						<a href="https://twitter.com" target="_blank">
+							<img src="Pictures/Twitter-Logo.png" alt="Twitter Logo" class="social-media-icon">
+						</a>
+						<a href="https://www.instagram.com" target="_blank">
+							<img src="Pictures/Instagram-Logo.png" alt="Instagram Logo" class="social-media-icon">
+						</a>
+					</div>
+				</div>
+				<div class="col-6">
+					<h5 class="ssansp" style="text-align: center; color: white; font-weight: bold; letter-spacing: .1em">All Sites</h5>
+					<hr style="border-color: white">
+					<div class="row">
+						<div class="col">
+							<ul style="list-style-type: none;">
+								<li><a href="Home.html" class="white">Home</a></li>
+								<li><a href="Flights.html" class="white">Book a Flight</a></li>
+								<li><a href="Cars.html" class="white">Rent a Car</a></li>
+								<li><a href="Hotels.html" class="white">Book a Hotel</a></li>
+								<li><a href="FFP.html" class="white">Frequent Flyer Program</a></li>
+								<li><a href="SignUp.html" class="white">Sign Up</a></li>
+							</ul>
+						</div>
+						<div class="col">
+							<ul style="list-style-type: none;">
+								<li><a href="About.html" class="white">About Us</a></li>
+								<li><a href="Contacts.html" class="white">Contact Us</a></li>
+								<li><a href="Careers.html" class="white">Careers</a></li>
+								<li><a href="FAQ.html" class="white">FAQ</a></li>
+								<li><a href="Credits.html" class="white">Credits</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr style="border-color: white;">
+			<p style="color: white; padding-bottom: 1rem; margin-bottom: 0;"><small>Created by Hayden Cones @ Ironwood High School, Glendale AZ, 2019-2020</small></p>
+		</div>
+	</footer>
+	
+</body>
+	
+</html>
